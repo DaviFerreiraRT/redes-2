@@ -55,7 +55,6 @@ public class Dijkstra {
     }
 
     public Collection<Integer> pathTo(int v) {
-        // LIFO
         Stack<Integer> path = new Stack<Integer>();
         for(int x = v; x != source; x = edgeTo[x]) {
             path.push(x);

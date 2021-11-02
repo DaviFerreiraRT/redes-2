@@ -6,42 +6,62 @@ public class Teste {
 
 
         public static void main(String[] args) {
-        Grafo graph = new Grafo(11);
-        int A = GrafoEnum.A.ordinal();
-        int B = GrafoEnum.B.ordinal();
-        int C = GrafoEnum.C.ordinal();
-        int D = GrafoEnum.D.ordinal();
-        int E = GrafoEnum.E.ordinal();
-        int F = GrafoEnum.F.ordinal();
-        int G = GrafoEnum.G.ordinal();
+        Grafo graph = new Grafo(7);
+        GrafoEnum A = GrafoEnum.A;
+        GrafoEnum B = GrafoEnum.B;
+        GrafoEnum C = GrafoEnum.C;
+        GrafoEnum D = GrafoEnum.D;
+        GrafoEnum E = GrafoEnum.E;
+        GrafoEnum F = GrafoEnum.F;
+        GrafoEnum G = GrafoEnum.G;
 
-        graph.addEdge(A,B,7);
-        graph.addEdge(A,D,5);
-        graph.addEdge(B,C,8);
-        graph.addEdge(B,D,9);
-        graph.addEdge(B,E,7);
-        graph.addEdge(C,E,5);
-        graph.addEdge(D,E,15);;
-        graph.addEdge(D,F,6);
-        graph.addEdge(E,F,8);
-        graph.addEdge(E,G,9);
-        graph.addEdge(F,G,11);
+        graph.addEdge(A.ordinal(),B.ordinal(),7);
+        graph.addEdge(A.ordinal(),D.ordinal(),5);
+        graph.addEdge(B.ordinal(),C.ordinal(),8);
+        graph.addEdge(B.ordinal(),D.ordinal(),9);
+        graph.addEdge(B.ordinal(),E.ordinal(),7);
+        graph.addEdge(C.ordinal(),E.ordinal(),5);
+        graph.addEdge(D.ordinal(),E.ordinal(),15);;
+        graph.addEdge(D.ordinal(),F.ordinal(),6);
+        graph.addEdge(E.ordinal(),F.ordinal(),8);
+        graph.addEdge(E.ordinal(),G.ordinal(),9);
+        graph.addEdge(F.ordinal(),G.ordinal(),11);
 
 
 
-        int source = 0;
+        int source = A.ordinal();
         Dijkstra dijkstra = new Dijkstra(graph, source);
 
         List<Integer> vertices = graph.getVertices();
         for (Integer v : vertices) {
             Collection<Integer> path = dijkstra.pathTo(v);
 
-            System.out.println("O caminho de " + source + " para " + v + ": " + path);
+            if(v == A.ordinal()) {
+                    System.out.println("O caminho de " + A + " para " + A + ": " + path);
+            }
+            else if(v == B.ordinal()){
+                    System.out.println("O caminho de " + A + " para " + B + ": " + path);
+            }
+            else if (v == C.ordinal()){
+                    System.out.println("O caminho de " + A + " para " + C + ": " + path);
+            }
+            else if (v == D.ordinal()){
+                    System.out.println("O caminho de " + A + " para " + D + ": " + path);
+            }
+            else if (v == E.ordinal()){
+                    System.out.println("O caminho de " + A + " para " + E + ": " + path);
+            }
+            else if (v == F.ordinal()){
+                    System.out.println("O caminho de " + A + " para " + F + ": " + path);
+            }
+            else if (v == G.ordinal()){
+                    System.out.println("O caminho de " + A + " para " + G + ": " + path);
+            }
+
             System.out.println("A distancia é: " + dijkstra.getDistanceTo(v));
         }
 
-        System.out.println(Arrays.toString(dijkstra.getDistTo()));
-        System.out.println(Arrays.toString(dijkstra.getEdgeTo()));
+
     }
 
 }
